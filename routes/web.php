@@ -24,7 +24,7 @@ Route::get('/jobs', function() {
 
 Route::get('/jobs/{id}', function ($id){
 
-    $job = Job::findById($id);
+    $job = Job::find($id);
     if(!$job) {
         abort(404);
     }

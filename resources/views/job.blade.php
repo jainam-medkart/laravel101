@@ -3,7 +3,7 @@
         Job Details for {{$job['title']}}
     </x-slot>
 
-    {{$job['title']}} pays {{$job['salary']}}
+    <h1>{{$job['title']}} pays {{$job['salary']}}</h1>
 
 
 </x-layout>

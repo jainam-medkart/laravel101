@@ -2,34 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Support\Arr;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Job {
-    public static function all(): array
-    {
-        return [
-            [
-                'id' => '1',
-                'title' => 'Marketing Director',
-                'salary' => '50k'
-            ],
-            [
-                'id' => '2',
-                'title' => 'Engineering Director',
-                'salary' => '50k'
-            ],
-            [
-                'id' => '3',
-                'title' => 'Finance Officer',
-                'salary' => '50k'
-            ]
-        ];
-    }
+class Job extends Model {
 
-    public static function findById($id)
-    {
-        return Arr::first(self::all() , function($job) use ($id) {
-            return $job['id'] === $id;
-        });
-    }
+    use HasFactory;
+
+    protected $table = 'job_listings';
+
+    protected $fillable = ['title' , 'salary'];
 }
