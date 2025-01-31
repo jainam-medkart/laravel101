@@ -17,8 +17,18 @@ Route::get('/home', function () {
 });
 
 Route::get('/jobs', function() {
+    /*
+
+        For eager loading, inside app provider.
+        Add config to prevent lazy loading in Boot method
+
+        Make sure it's not "prevents"
+        Mode::preventLazyLoading();
+    */
+    $jobs = Job::with('employer')->get();
+
     return view('jobs', [
-        'jobs' => Job::all()
+        'jobs' => $jobs
     ]);
 });
 
