@@ -3,7 +3,7 @@
         Current Job Listings
     </x-slot>
 
-    <ul class="space-y-4">
+    <ul class="space-y-4 pb-4">
         @foreach($jobs as $job)
             <li class="p-5 border border-gray-300 rounded-lg shadow-sm hover:bg-gray-100 transition duration-200">
                 <p class="text-sm text-gray-500">Posted by:
@@ -16,5 +16,9 @@
             </li>
         @endforeach
     </ul>
+
+    <div>
+        {{$jobs->links()}}
+    </div>
 
 </x-layout>

@@ -25,7 +25,18 @@ Route::get('/jobs', function() {
         Make sure it's not "prevents"
         Mode::preventLazyLoading();
     */
-    $jobs = Job::with('employer')->get();
+
+    /*
+        If we want to have simpler pagination like just previous and next
+        $jobs = Job::with('employer')->simplePaginate(1);
+
+        Or if there's any scenarios like Infinite scrolling or
+        something where you have to deal with a large dataset
+        or page number is not important you can use cursor
+        $jobs = Job::with('employer')->cursorPaginate(1);
+
+    */
+    $jobs = Job::with('employer')->paginate(2);
 
     return view('jobs', [
         'jobs' => $jobs
